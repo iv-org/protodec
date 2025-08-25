@@ -36,8 +36,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-        with:
-          fetch-tags: true
+
+      - name: "Fetch tags (required to build Protodec)"
+        run: git fetch --depth=1 origin '+refs/tags/*:refs/tags/*'
 
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1.8.2
